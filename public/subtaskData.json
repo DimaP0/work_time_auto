@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "k": "?",
+    "category": "Категория 1",
+    "subcategory": "Подкатегория 1",
+    "workName": "Название работы 1",
+    "performer": "Работник 1",
+    "documentId": 1,
+    "scheduledTime": "1234",
+    "actualTime":"12345",
+    "percent":"50%",
+    "dateOfStart": "15.05.2022",
+    "status": "выполняется",
+    "comment": ""
+  },
+  {
+    "id": 2,
+    "k": "?",
+    "category": "Категория 2",
+    "subcategory": "Подкатегория 1",
+    "workName": "Название работы 1",
+    "performer": "Работник 2",
+    "documentId": 1,
+    "scheduledTime": "1234",
+    "actualTime":"12345",
+    "percent":"50%",
+    "dateOfStart": "15.05.2022",
+    "status": "выполняется",
+    "comment": ""
+  },
+  {
+    "id": 1,
+    "k": "?",
+    "category": "Категория 3",
+    "subcategory": "Подкатегория 1",
+    "workName": "Название работы 1",
+    "performer": "Работник 3",
+    "documentId": 1,
+    "scheduledTime": "1234",
+    "actualTime":"12345",
+    "percent":"50%",
+    "dateOfStart": "15.05.2022",
+    "status": "выполняется",
+    "comment": ""
+  },
+  {
+    "id": 1,
+    "k": "?",
+    "category": "Категория 4",
+    "subcategory": "Подкатегория 1",
+    "workName": "Название работы 1",
+    "performer": "Работник 4",
+    "documentId": 1,
+    "scheduledTime": "1234",
+    "actualTime":"12345",
+    "percent":"50%",
+    "dateOfStart": "15.05.2022",
+    "status": "выполняется",
+    "comment": ""
+  },
+  {
+    "id": 1,
+    "k": "?",
+    "category": "Категория 5",
+    "subcategory": "Подкатегория 1",
+    "workName": "Название работы 1",
+    "performer": "Работник 5",
+    "documentId": 1,
+    "scheduledTime": "1234",
+    "actualTime":"12345",
+    "percent":"50%",
+    "dateOfStart": "15.05.2022",
+    "status": "выполняется",
+    "comment": ""
+  }
+]
+
+

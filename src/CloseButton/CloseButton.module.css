@@ -1,0 +1,12 @@
+.close_button {
+  position: absolute;
+  display: flex;
+  top: 0px;
+  right: 0px;
+  margin-bottom: 10px;
+}
+
+.close_button:hover {
+  background-color: rgb(255, 181, 181);
+  cursor: pointer;
+}

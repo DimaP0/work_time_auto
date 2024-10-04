@@ -1,17 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom/client";
+// import {RouterProvider} from "react-router-dom";
+import "./App.module.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// import React from 'react';
+import {createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import Login from './Login/Login';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import { managerPath } from './validation/managerPath';
+import { engineerPath } from './validation/engineerPath';
+import { workerPath } from './validation/workerPath';
+
+function Redirect({url = "/"}) {
+  const navigate = useNavigate();
+
+  // Пример программного редиректа
+  useEffect(() => {
+    // После некоторой логики или условия
+    navigate(url);
+  }, [navigate, url]);
+
+  return <h1>Redirecting...</h1>;
+}
+
+let router = createBrowserRouter([
+    {
+      path: "*",
+      element: <Redirect url="/login" />
+    },
+    {
+      path: "/login",
+      element: <Login />
+    },
+  ]);
+
+  let login = "manager";
+  let password = "manager";
+  if (login === "manager" && password === "manager") router = createBrowserRouter(managerPath);
+  // if (login === "engineer" && password === "engineer") router = createBrowserRouter(engineerPath);
+  // if (login === "worker" && password === "worker") router = createBrowserRouter(workerPath);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  );

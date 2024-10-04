@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.module.css";
+import { useState } from "react";
+import Header from "./Header/Header";
+import Requests from "./Requests";
+import { useEffect } from "react";
+import ProjectList from "./Manager/ProjectList/ProjectList";
 
 function App() {
+
+  const [projectData, setProjectsData] = useState([]);
+
+  useEffect( () => {
+    Requests.get('/projectsData.json', setProjectsData);
+  }, [] );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header>
+        <div>Проекты</div>
+      </Header>
+
+      <ProjectList projectsList = {projectData}/>
     </div>
   );
 }
