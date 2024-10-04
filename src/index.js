@@ -11,7 +11,7 @@ import { managerPath } from './validation/managerPath';
 import { engineerPath } from './validation/engineerPath';
 import { workerPath } from './validation/workerPath';
 
-function Redirect({url = "/"}) {
+export function Redirect({url = "/"}) {
   const navigate = useNavigate();
 
   // Пример программного редиректа
