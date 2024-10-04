@@ -7,9 +7,9 @@ import "./App.module.css";
 import {createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
 import Login from './Login/Login';
 
-import { managerPath } from './validation/managerPath';
-import { engineerPath } from './validation/engineerPath';
-import { workerPath } from './validation/workerPath';
+import { managerPath } from './routes/managerPath';
+import { engineerPath } from './routes/engineerPath';
+import { workerPath } from './routes/workerPath';
 
 export function Redirect({url = "/"}) {
   const navigate = useNavigate();
