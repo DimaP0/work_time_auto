@@ -23,7 +23,7 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
   // Отфильтрованные опции на основе поискового запроса
   const filteredOptions = useMemo(() => {
     return options.filter((option) =>
-      option.label.toLowerCase().includes(searchTerm.toLowerCase())
+      option.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [searchTerm, options]);
 
@@ -37,7 +37,7 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
 
   // Обработчик изменения поискового запроса
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+    setSearchTerm(e.target.id);
     if (!isOpen) {
       setIsOpen(true);  // Открываем список при вводе текста
     }
@@ -50,7 +50,7 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
         className={`${styles.selectHeader} ${isOpen ? styles.open : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        {selectedOption ? selectedOption.label : placeholder}
+        {selectedOption ? selectedOption.name : placeholder}
         <span className={styles.arrow}>{isOpen ? '▲' : '▼'}</span>
       </div>
 
@@ -62,7 +62,7 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
             type="text"
             className={styles.searchInput}
             placeholder="Search..."
-            value={searchTerm}
+            id={searchTerm}
             onChange={handleSearchChange}
           />
 
@@ -71,15 +71,15 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (
                 <div
-                  key={option.value}
+                  key={option.id}
                   className={`${styles.option} ${
-                    selectedOption && selectedOption.value === option.value
+                    selectedOption && selectedOption.id === option.id
                       ? styles.selected
                       : ''
                   }`}
                   onClick={() => handleOptionClick(option)}
                 >
-                  {option.label}
+                  {option.name}
                 </div>
               ))
             ) : (
