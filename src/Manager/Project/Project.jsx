@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import classes from './Project.module.css';
+import classes from './Project.module.css';
 import { useParams } from 'react-router-dom';
 import Requests from '../../Requests';
 import Header from '../../Header/Header';
@@ -19,25 +19,27 @@ const Project = () => {
 
   console.log(project);
   return (
-    <div >
-      <Header>
-        <Link to={"/projects"}><div>Проекты</div></Link>
-      </Header>
-      <div>{project.name}</div>
-      <div>{project.description}</div>
-      {
-      project.tasks_id.map((task) => (
-        <Link 
-          key={task.id} 
-          to={`/projects/${projectId}/${task.id}`} 
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        > 
-          <hr></hr>
-          <div>{task.name}</div>
-          <div>{task.description}</div>
-        </Link>
-      ))
-      }
+    <div>
+        <Header>
+          <Link to={"/projects"}><div>Проекты</div></Link>
+        </Header>
+        <div className={classes.ProjectName}>
+          <h1>{project.name}</h1>
+          {project.description}
+        </div>
+      <div className={classes.TaskPage}>{
+        project.tasks_id.map((task) => (
+          <Link 
+            key={task.id} 
+            to={`/projects/${projectId}/${task.id}`} 
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          > 
+            <div className={classes.TaskItem}>
+            <h3>{task.name}</h3>
+            {task.description}</div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
