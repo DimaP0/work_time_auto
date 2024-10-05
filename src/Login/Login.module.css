@@ -1,12 +1,14 @@
 button, input, h3 {
   margin: 5px;
   padding: 5px;
-  display: flex;
-  flex-direction: inherit;
+  display: grid;
 }
 
 button {
   cursor: pointer;
+  width: -webkit-fill-available;
+  grid-template-columns: auto;
+  margin-top: 20px;
 }
 
 h3 {
