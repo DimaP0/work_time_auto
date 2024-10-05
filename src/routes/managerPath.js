@@ -1,6 +1,7 @@
 import ManagerPage from "../Manager/ManagerPage/ManagerPage";
-import { Redirect } from "../index";
-import { Link } from "react-router-dom";
+// import { Redirect } from "../index";
+// import { Link } from "react-router-dom";
+import Redirect from "../redirect";
 import Project from "../Manager/Project/Project";
 
 

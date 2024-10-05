@@ -1,48 +1,58 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
-// import {RouterProvider} from "react-router-dom";
-import "./App.module.css";
-
-// import React from 'react';
-import {createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Login from './Login/Login';
-
 import { managerPath } from './routes/managerPath';
 import { engineerPath } from './routes/engineerPath';
 import { workerPath } from './routes/workerPath';
+import { useStore } from './store'; 
+import './App.module.css'
+import Redirect from "./redirect";
 
-export function Redirect({url = "/"}) {
-  const navigate = useNavigate();
+// Компонент для базовых маршрутов
+const baseRouter = createBrowserRouter([
+  {
+    path: "*",
+    element: <Redirect url="/login" /> // Показываем логин по умолчанию
+  },
+  {
+    path: "/login",
+    element: <Login /> // Страница логина
+  },
+]);
 
-  // Пример программного редиректа
-  useEffect(() => {
-    // После некоторой логики или условия
-    navigate(url);
-  }, [navigate, url]);
+const App = () => {
+  let { login, password, isAuth } = useStore(); 
 
-  return <h1>Redirecting...</h1>;
-}
+  login = localStorage.getItem("login");
+  password = localStorage.getItem("password");
+  isAuth = localStorage.getItem("isAuth") === "true";
 
-let router = createBrowserRouter([
-    {
-      path: "*",
-      element: <Redirect url="/login" />
-    },
-    {
-      path: "/login",
-      element: <Login />
-    },
-  ]);
+  const getRouter = () => {
+    // В зависимости от роли пользователя выбираем маршруты
+    if (isAuth && login === "manager" && password === "manager") {
+      return createBrowserRouter(managerPath);
+    }
+    if (isAuth && login === "engineer" && password === "engineer") {
+      return createBrowserRouter(engineerPath);
+    }
+    if (isAuth && login === "worker" && password === "worker") {
+      return createBrowserRouter(workerPath);
+    }
 
-  let login = "manager";
-  let password = "manager";
-  if (login === "manager" && password === "manager") router = createBrowserRouter(managerPath);
-  // if (login === "engineer" && password === "engineer") router = createBrowserRouter(engineerPath);
-  // if (login === "worker" && password === "worker") router = createBrowserRouter(workerPath);
+    return baseRouter; // Возвращаем базовые маршруты, если не авторизован
+  };
+
+  const router = getRouter();
+
+  return (
+    <RouterProvider router={router} /> 
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-  root.render(
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  );
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

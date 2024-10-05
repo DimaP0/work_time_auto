@@ -1,18 +1,48 @@
-import React, { useRef } from 'react';
-import Modal from '../Modal/Modal';
-import './Login.module.css'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useStore } from "../store";
+// import classes from './Login.module.css';
+import Modal from "../Modal/Modal";
 
 const Login = () => {
-  const password = useRef();
+  const { login, setLogin, password, setPassword, setIsAuth } = useStore();
+  const navigate = useNavigate(); // Теперь `useNavigate` будет работать корректно
 
-  console.log(password);
+  const handleLogin = () => {
+    // Примитивная проверка логина/пароля
+    if (
+      (login === "manager" && password === "manager") ||
+      (login === "engineer" && password === "engineer") ||
+      (login === "worker" && password === "worker")
+    ) {
+      setIsAuth(true); // Обновляем статус авторизации
+      localStorage.setItem("isAuth", true);
+      localStorage.setItem("login", login);
+      localStorage.setItem("password", password);
+      navigate("/"); // После успешного логина, перенаправляем на главную страницу
+    } else {
+      alert("Неверный логин или пароль");
+    }
+  };
 
   return (
     <Modal isOpen={true}>
-      <h3>Вход</h3> 
-      <input type="text" placeholder='Логин' ref={password}/>
-      <input type="password" placeholder='Пароль'/>
-      <button >Войти</button>
+      <div>
+        <h3>Вход</h3>
+        <input
+          type="text"
+          placeholder="Логин"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Пароль"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Войти</button>
+      </div>
     </Modal>
   );
 };
