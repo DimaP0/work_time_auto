@@ -1,4 +1,4 @@
-[
+export const projects = [
   {
     "name": "Проект 1",
     "id": 1,
@@ -18,8 +18,8 @@
         "worker_id": 1
       },
       { 
-        "name": "Задача 2",
-        "description": "Описание задачи 1.",
+        "name": "Задача 3",
+        "description": "Описание задачи 3.",
         "id": 3,
         "worker_id": 1
       }
@@ -44,8 +44,8 @@
         "worker_id": 1
       },
       { 
-        "name": "Задача 2",
-        "description": "Описание задачи 1.",
+        "name": "Задача 3",
+        "description": "Описание задачи 3.",
         "id": 3,
         "worker_id": 1
       }
@@ -70,8 +70,8 @@
         "worker_id": 1
       },
       { 
-        "name": "Задача 2",
-        "description": "Описание задачи 1.",
+        "name": "Задача 3",
+        "description": "Описание задачи 3.",
         "id": 3,
         "worker_id": 1
       }
