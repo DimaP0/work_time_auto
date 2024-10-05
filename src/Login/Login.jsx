@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
-// import classes from './Login.module.css';
+import './Login.module.css';
 import Modal from "../Modal/Modal";
 
 const Login = () => {
@@ -34,6 +34,7 @@ const Login = () => {
           placeholder="Логин"
           value={login}
           onChange={(e) => setLogin(e.target.value)}
+          className=""
         />
         <input
           type="password"

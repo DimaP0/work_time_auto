@@ -16,9 +16,7 @@ const ManagerPage = () => {
   return (
     <div>
       <Header>
-        
         <Link to={"/projects"}><div>Проекты</div></Link>
-        <Link to={"/"}><div>Main page</div></Link>
       </Header>
 
       <ProjectList projectsList={projectData}></ProjectList>

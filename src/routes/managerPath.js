@@ -3,6 +3,7 @@ import ManagerPage from "../Manager/ManagerPage/ManagerPage";
 // import { Link } from "react-router-dom";
 import Redirect from "../redirect";
 import Project from "../Manager/Project/Project";
+import ProjectsTask from "../Manager/ProjectsTask/ProjectsTask";
 
 
 export const managerPath = [
@@ -15,7 +16,11 @@ export const managerPath = [
     element: <ManagerPage />
   },
   {
-    path: "/projects/:projectId/:taskId",
+    path: "/projects/:projectId",
     element: <Project></Project>
+  },
+  {
+    path: "/projects/:projectId/:taskId",
+    element: <ProjectsTask></ProjectsTask>
   },
 ];

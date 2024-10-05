@@ -1,14 +1,12 @@
 button, input, h3 {
   margin: 5px;
   padding: 5px;
+  display: flex;
+  flex-direction: inherit;
 }
 
 button {
   cursor: pointer;
-}
-
-button:hover {
-  background-color: rgb(187, 175, 253)
 }
 
 h3 {

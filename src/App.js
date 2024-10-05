@@ -1,27 +1,51 @@
-import "./App.module.css";
-import { useState } from "react";
-import Header from "./Header/Header";
-import Requests from "./Requests";
-import { useEffect } from "react";
-import ProjectList from "./Manager/ProjectList/ProjectList";
+import React from 'react';
+import { createBrowserRouter } from 'react-router-dom';
+import Redirect from './redirect';
+import Login from './Login/Login';
+import { useStore } from './store';
+import { managerPath } from './routes/managerPath';
+import { engineerPath } from './routes/engineerPath';
+import { workerPath } from './routes/workerPath';
+import { RouterProvider } from 'react-router-dom';
 
-function App() {
+const baseRouter = createBrowserRouter([
+  {
+    path: "*",
+    element: <Redirect url="/login" />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+]);
 
-  const [projectData, setProjectsData] = useState([]);
+const App = () => {
+  let { login, password, isAuth } = useStore(); 
 
-  useEffect( () => {
-    Requests.get('/projectsData.json', setProjectsData);
-  }, [] );
+  login = localStorage.getItem("login");
+  password = localStorage.getItem("password");
+  isAuth = localStorage.getItem("isAuth") === "true";
+
+  const getRouter = () => {
+    // В зависимости от роли пользователя выбираем маршруты
+    if (isAuth && login === "manager" && password === "manager") {
+      return createBrowserRouter(managerPath);
+    }
+    if (isAuth && login === "engineer" && password === "engineer") {
+      return createBrowserRouter(engineerPath);
+    }
+    if (isAuth && login === "worker" && password === "worker") {
+      return createBrowserRouter(workerPath);
+    }
+
+    return baseRouter; 
+  };
+
+  const router = getRouter();
 
   return (
-    <div>
-      <Header>
-        <div>Проекты</div>
-      </Header>
-
-      <ProjectList projectsList = {projectData}/>
-    </div>
+    <RouterProvider router={router} /> 
   );
-}
+};
 
 export default App;
