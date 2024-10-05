@@ -37,7 +37,7 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
 
   // Обработчик изменения поискового запроса
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.id);
+    setSearchTerm(e.target.value);  // Используем e.target.value для изменения поискового запроса
     if (!isOpen) {
       setIsOpen(true);  // Открываем список при вводе текста
     }
@@ -62,8 +62,8 @@ const Select = ({ options, onSelect, placeholder = 'Select an option' }) => {
             type="text"
             className={styles.searchInput}
             placeholder="Search..."
-            id={searchTerm}
-            onChange={handleSearchChange}
+            value={searchTerm}
+            onChange={handleSearchChange}  // Используем правильное событие для обновления
           />
 
           {/* Список опций */}
