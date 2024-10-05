@@ -1,4 +1,5 @@
 import React from "react";
+import classes from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 import { useStore } from "../store";
 import './Login.module.css';
@@ -27,8 +28,8 @@ const Login = () => {
 
   return (
     <Modal isOpen={true}>
-      <div>
-        <h3>Вход</h3>
+      <div className={classes.LoginDiv}>
+        <div>Вход</div>
         <input
           type="text"
           placeholder="Логин"
