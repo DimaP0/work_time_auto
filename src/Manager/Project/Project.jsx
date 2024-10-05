@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import Requests from '../../Requests';
 import Header from '../../Header/Header';
 import { Link } from 'react-router-dom';
-import ProjectsTask from '../ProjectsTask/ProjectsTask';
 
 const Project = () => {
   const {projectId} = useParams();
