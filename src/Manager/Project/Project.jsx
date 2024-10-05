@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import Requests from '../../Requests';
 import Header from '../../Header/Header';
 import { Link } from 'react-router-dom';
+import Select from "../../Select/Select";
+import engineers from '../../engineers'
 
 const Project = () => {
   const {projectId} = useParams();
@@ -23,6 +25,13 @@ const Project = () => {
           <Link to={"/projects"}><div>Проекты</div></Link>
         </Header>
         <div className={classes.ProjectName}>
+        <div className={classes.Select}>
+          <Select
+        placeholder="Выберите инженера" 
+        options={engineers}
+        onSelect={(e) => console.log(e)}>
+        </Select>
+        </div>
           <h1>{project.name}</h1>
           {project.description}
         </div>
