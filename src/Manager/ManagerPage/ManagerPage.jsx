@@ -5,7 +5,7 @@ import Requests from "../../Requests";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Select from "../../Select/Select";
-import {engineers} from '../../engineers'
+import engineers from '../../engineers'
 
 const ManagerPage = () => {
   const [projectData, setProjectsData] = useState([]);

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Requests from '../../Requests';
 import Header from '../../Header/Header';
 import { Link } from 'react-router-dom';
-import classes from "C:/project/work_time_auto-1/src/Manager/ProjectsTask/ProjectsTask.module.css";
+import classes from './ProjectsTask.module.css';
 const ProjectsTask = () => {
 
   const [task, setTask] = React.useState({});
