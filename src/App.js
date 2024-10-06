@@ -22,9 +22,9 @@ const baseRouter = createBrowserRouter([
 const App = () => {
   let { login, password, isAuth } = useStore(); 
 
-  login = localStorage.getItem("login");
-  password = localStorage.getItem("password");
-  isAuth = localStorage.getItem("isAuth") === "true";
+  login = sessionStorage.getItem("login");
+  password = sessionStorage.getItem("password");
+  isAuth = sessionStorage.getItem("isAuth") === "true";
 
   const getRouter = () => {
     // В зависимости от роли пользователя выбираем маршруты

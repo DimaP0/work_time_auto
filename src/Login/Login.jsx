@@ -17,9 +17,9 @@ const Login = () => {
       (login === "worker" && password === "worker")
     ) {
       setIsAuth(true); // Обновляем статус авторизации
-      localStorage.setItem("isAuth", true);
-      localStorage.setItem("login", login);
-      localStorage.setItem("password", password);
+      sessionStorage.setItem("isAuth", true);
+      sessionStorage.setItem("login", login);
+      sessionStorage.setItem("password", password);
       navigate("/"); // После успешного логина, перенаправляем на главную страницу
     } else {
       alert("Неверный логин или пароль");

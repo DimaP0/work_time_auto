@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Requests from '../../Requests';
-import Header from '../../Header/Header';
-import { Link } from 'react-router-dom';
 import classes from './ProjectsTask.module.css';
+import WorkersHeader from '../WorkersHeader/WorkersHeader';
 const ProjectsTask = () => {
 
   const [task, setTask] = React.useState({});
@@ -17,9 +16,7 @@ const ProjectsTask = () => {
 
   return (
     <div>
-      <Header>
-        <Link to={"/projects"}><div>Проекты</div></Link>
-      </Header>
+      <WorkersHeader></WorkersHeader>
       <div className={classes.TaskHead}>
       <h1>{task.name}</h1>
       {task.description}

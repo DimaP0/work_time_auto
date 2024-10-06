@@ -1,9 +1,8 @@
 import React from "react";
-import Header from "../../Header/Header";
 import ProjectList from "../ProjectList/ProjectList";
 import Requests from "../../Requests";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import WorkersHeader from "../WorkersHeader/WorkersHeader";
 
 const WorkerPage = () => {
   const [projectData, setProjectsData] = useState([]);
@@ -11,13 +10,11 @@ const WorkerPage = () => {
   useEffect(() => {
     Requests.get("/projectsData.json", setProjectsData);
     console.log(projectData);
-  }, []);
+  }, [projectData]);
 
   return (
     <div>
-      <Header>
-        <Link to={"/projects"}><div>Проекты</div></Link>
-      </Header>
+      <WorkersHeader></WorkersHeader>
 
       <ProjectList projectsList={projectData}></ProjectList>
 

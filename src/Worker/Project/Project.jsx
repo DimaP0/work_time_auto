@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import classes from './Project.module.css';
 import { useParams } from 'react-router-dom';
 import Requests from '../../Requests';
-import Header from '../../Header/Header';
-import { Link } from 'react-router-dom';
-import Select from "../../Select/Select";
-import engineers from '../../engineers'
+import ProjectsTaskItem from '../ProjectsTaskItem/ProjectsTaskItem';
+import WorkersHeader from '../WorkersHeader/WorkersHeader';
 
 const Project = () => {
   const {projectId} = useParams();
@@ -21,35 +19,18 @@ const Project = () => {
   console.log(project);
   return (
     <div>
-      <Header>
-        <Link to={"/projects"}>
-          <div>Проекты</div>
-        </Link>
-      </Header>
+      <WorkersHeader></WorkersHeader>
       <div className={classes.ProjectName}>
-        <div className={classes.Select}>
-          {/* <Select
-            placeholder="Выберите инженера"
-            options={engineers}
-            onSelect={(e) => console.log(e)}
-          ></Select> */}
-        </div>
         <h1>{project.name}</h1>
         {project.description}
       </div>
       <div className={classes.TaskPage}>
-        {project.tasks_id.map((task) => (
-          <Link
-            key={task.id}
-            to={`/projects/${projectId}/${task.id}`}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <div className={classes.TaskItem}>
-              <h3>{task.name}</h3>
-              {task.description}
-            </div>
-          </Link>
-        ))}
+        <ProjectsTaskItem
+          projectId={projectId}
+          project={project}
+          isActive={false}
+          isPause={true}
+        ></ProjectsTaskItem>
       </div>
     </div>
   );
