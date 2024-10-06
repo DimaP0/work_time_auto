@@ -10,6 +10,7 @@ export default class Requests {
 
   static getProjectById(id, setData) {
     const project = projects.find((project) => project.id === id);
+    console.log(project)
     setData(project);
   }
 

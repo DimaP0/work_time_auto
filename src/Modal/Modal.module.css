@@ -1,6 +1,6 @@
 /* Стиль для затемненного фона */
 .modal_overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -14,8 +14,9 @@
 
 /* Стиль для модального окна */
 .modal {
+  top: 0;
   background-color: white;
-  padding: 20px;
+  padding: 1px;
   width: auto;
   max-width: 100%;
   border-radius: 8px;
@@ -38,8 +39,7 @@
 
 /* Стиль для контента внутри модального окна */
 .modal_content {
-  margin-top: 10px;
-  display: grid;
+  display: flexbox;
   align-items: center;
   justify-content: center;
 }

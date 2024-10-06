@@ -1,7 +1,40 @@
-button, input, h3 {
+input{
+  text-align: center;
   margin: 5px;
   padding: 5px;
-  display: grid;
+
+  display: flex;
+  flex-direction: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: rgb(196, 196, 196) rgb(180, 180, 180) rgb(200, 200, 200);
+  border-style: solid;
+}
+
+button{
+  background-color: rgb(24, 28, 70);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-width: 1px;
+  padding: 2px 8px 3px;
+  text-rendering: auto;
+}
+
+.LoginDiv{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: larger;
+  display: flexbox;
+  flex-wrap: wrap;
+  align-content:center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column
+
 }
 
 button {
@@ -11,8 +44,9 @@ button {
   margin-top: 20px;
 }
 
-h3 {
-  position: absolute;
+div{
+  padding: 0;
+  width: auto;
   top: 0px;
 }
 

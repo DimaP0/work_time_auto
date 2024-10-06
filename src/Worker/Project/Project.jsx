@@ -21,30 +21,33 @@ const Project = () => {
   console.log(project);
   return (
     <div>
-        <Header>
-          <Link to={"/projects"}><div>Проекты</div></Link>
-        </Header>
-        <div className={classes.ProjectName}>
+      <Header>
+        <Link to={"/projects"}>
+          <div>Проекты</div>
+        </Link>
+      </Header>
+      <div className={classes.ProjectName}>
         <div className={classes.Select}>
-          <Select
-        placeholder="Выберите инженера" 
-        options={engineers}
-        onSelect={(e) => console.log(e)}>
-        </Select>
+          {/* <Select
+            placeholder="Выберите инженера"
+            options={engineers}
+            onSelect={(e) => console.log(e)}
+          ></Select> */}
         </div>
-          <h1>{project.name}</h1>
-          {project.description}
-        </div>
-      <div className={classes.TaskPage}>{
-        project.tasks_id.map((task) => (
-          <Link 
-            key={task.id} 
-            to={`/projects/${projectId}/${task.id}`} 
-            style={{ textDecoration: 'none', color: 'inherit' }}
-          > 
+        <h1>{project.name}</h1>
+        {project.description}
+      </div>
+      <div className={classes.TaskPage}>
+        {project.tasks_id.map((task) => (
+          <Link
+            key={task.id}
+            to={`/projects/${projectId}/${task.id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             <div className={classes.TaskItem}>
-            <h3>{task.name}</h3>
-            {task.description}</div>
+              <h3>{task.name}</h3>
+              {task.description}
+            </div>
           </Link>
         ))}
       </div>
