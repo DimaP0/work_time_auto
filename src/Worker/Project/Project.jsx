@@ -25,12 +25,20 @@ const Project = () => {
         {project.description}
       </div>
       <div className={classes.TaskPage}>
-        <ProjectsTaskItem
+        {project.tasks_id.map((task) => (
+          <ProjectsTaskItem
+          projectId={projectId}
+          task={task}
+          isActive={true}
+          isPause={true}
+        ></ProjectsTaskItem>
+        ))}
+        {/* <ProjectsTaskItem
           projectId={projectId}
           project={project}
           isActive={false}
           isPause={true}
-        ></ProjectsTaskItem>
+        ></ProjectsTaskItem> */}
       </div>
     </div>
   );

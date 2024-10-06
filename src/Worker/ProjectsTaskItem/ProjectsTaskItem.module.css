@@ -9,12 +9,48 @@
   margin: 10px;  
   margin-left: 40px;
   padding: 10px; 
+  min-height: 100px;
 }
 
 .TaskItem_active{
-  background-color: rgb(252, 160, 160);
+  background-color: rgb(195, 105, 105);
+  color: black;
+}
+.TaskItem_active *{
+  background-color:rgb(195, 105, 105);
+  color: black;
 }
 
 .TaskItem_paused {
   background-color: rgb(234, 250, 162);
+  color: black;
+}
+.TaskItem_paused * {
+  background-color: rgb(234, 250, 162);
+  color: black;
+}
+
+.buttons {
+  position: relative;
+  display: flex;
+  justify-self: end;
+  flex-direction: column;
+  align-content: flex-end;
+  align-items: flex-end;
+  width: min-content;
+
+  float: right;
+  top: -55px;
+}
+
+.buttons * {
+  border: 1px solid black;
+  opacity: 0.5;
+  color: black;
+  padding: 5px;
+}
+
+button:hover  {
+  opacity: 1;
+  cursor: pointer;
 }
