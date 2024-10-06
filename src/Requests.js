@@ -6,6 +6,7 @@ export default class Requests {
   static async get(url, setData) {
     const response = await axios.get(url);
     setData(response.data);
+    // setData(projects);
   }
 
   static getProjectById(id, setData) {

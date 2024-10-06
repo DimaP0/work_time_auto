@@ -31,6 +31,7 @@ const Project = () => {
           task={task}
           isActive={true}
           isPause={true}
+          key={task.id + task.name}
         ></ProjectsTaskItem>
         ))}
         {/* <ProjectsTaskItem

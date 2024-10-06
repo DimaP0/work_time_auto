@@ -10,7 +10,7 @@ const WorkerPage = () => {
   useEffect(() => {
     Requests.get("/projectsData.json", setProjectsData);
     console.log(projectData);
-  }, [projectData]);
+  }, []);
 
   return (
     <div>
