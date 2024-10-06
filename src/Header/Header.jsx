@@ -12,7 +12,8 @@ const Header = ({children}) => {
         <div 
           className={classes.logOut}
           onClick={ () => {
-            localStorage.setItem("isAuth", false);
+            sessionStorage.setItem("isAuth", false);
+            console.log(localStorage.getItem("isAuth"));
             setIsAuth(false);
           }}
         >Выход</div> 

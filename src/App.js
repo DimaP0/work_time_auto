@@ -31,10 +31,10 @@ const App = () => {
     if (isAuth && login === "manager" && password === "manager") {
       return createBrowserRouter(managerPath);
     }
-    if (isAuth && login === "engineer" && password === "engineer") {
+    else if (isAuth && login === "engineer" && password === "engineer") {
       return createBrowserRouter(engineerPath);
     }
-    if (isAuth && login === "worker" && password === "worker") {
+    else if (isAuth && login === "worker" && password === "worker") {
       return createBrowserRouter(workerPath);
     }
 
